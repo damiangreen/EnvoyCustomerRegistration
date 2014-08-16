@@ -1,0 +1,51 @@
+﻿@using Envoy.CustomRegistrar.Core.Models
+@{
+    ViewBag.Title = "Envoy Customer registration";
+    @model User
+}
+<script src="~/Scripts/envoy.userRegistration.js"></script>
+<div class="row">
+    <div class="col-md-4">
+        <h2>Envoy Customer Registration</h2>
+        <p>
+            Please register using the form below.
+        </p>
+    </div>
+    <div class="col-md-4">
+        @using (Html.BeginForm("Register", "Home"))
+        {
+            @Html.ValidationSummary(true)
+            <div class="form-group">
+                @Html.LabelFor(x => x.FirstName)
+                @Html.TextBoxFor(x => x.FirstName)
+                @Html.ValidationMessageFor(x => x.FirstName)
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(x => x.LastName)
+                @Html.TextBoxFor(x => x.LastName)
+                @Html.ValidationMessageFor(x => x.LastName)
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(x => x.Email)
+                @Html.TextBoxFor(x => x.Email)
+                @Html.ValidationMessageFor(x => x.Email)
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.AddressLine1)
+                @Html.TextBoxFor(x => x.AddressLine1)
+                @Html.ValidationMessageFor(x => x.AddressLine1)
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(x => x.AddressLine2)
+                @Html.TextBoxFor(x => x.AddressLine2)
+                @Html.ValidationMessageFor(x => x.AddressLine2)
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(x => x.Postcode)
+                @Html.TextBoxFor(x => x.Postcode)
+                @Html.ValidationMessageFor(x => x.Postcode)
+            </div>
+            <button type="submit" class="btn btn-default">Submit</button>
+        }
+    </div>
+</div>
